@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carousel</title>
+        <style type="text/css">
+            .boxes{
+                width: 800px;
+                margin: 20px auto;
+
+                text-align: center;
+            }
+            .box{
+                height: 200px;
+                color: white;
+                font-size: 30px;
+                
+                line-height: 200px;
+            }
+            #box1{
+                background-color: tomato;
+            }
+            #box2{
+                background-color: blue;
+                display: none;
+            }
+            #box3{
+                background-color: chartreuse;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="boxes">
+            <div id="box1" class="box">One</div>
+            <div id="box2" class="box">Two</div>
+            <div id="box3" class="box">Three</div>
+
+            <button id="prevbtn">&laquo; Prev</button>
+            <button id="nextbtn">&raquo; Next</button>
+        </div>
+        
+
+
+        <script type="text/javascript">
+            const prevbtn = document.querySelector('#prevbtn'),
+                    nextbtn = document.querySelector('#nextbtn');
+            let current = 1;
+
+            //for carousel auto change
+            setInterval(next,3000);
+
+            function next(){
+                document.querySelector(`#box${current}`).style.display = 'none';
+                current++;
+                if(current > 3){
+                    current = 1;
+                }
+                document.querySelector(`#box${current}`).style.display = 'block';
+            }
+            function prev(){
+                document.querySelector(`#box${current}`).style.display = 'none';
+                current--;
+                if(current < 1){
+                    current = 3;
+                }
+                document.querySelector(`#box${current}`).style.display = 'block';
+            }
+
+            prevbtn.addEventListener('click',prev);
+            nextbtn.addEventListener('click',next);
+
+        </script>
+    </body>
+</html>

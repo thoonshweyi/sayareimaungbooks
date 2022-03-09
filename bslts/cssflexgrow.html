@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flex Grow</title>
+        <style type="text/css">
+            .wrap{
+                display : flex;
+            }
+            .wrap div{
+                flex-grow : 1;
+                height : 200px;
+                background-color: cyan;
+                margin: 10px;
+
+                text-align: center;
+                line-height: 200px;
+            }
+            .wrap div:first-child{
+                flex-grow: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrap'>
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+          </div>
+
+    </body>
+</html>

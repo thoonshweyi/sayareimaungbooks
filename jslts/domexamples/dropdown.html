@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drop Down Menu</title>
+        <style type="text/css">
+            a{
+                text-decoration: none;
+            }
+            .dropdown{
+                position: relative;
+            }
+            .menu{
+                width: 200px;
+                background-color: #efefef;
+                border: 1px solid #ddd;
+
+                position: absolute;
+
+                display: none;
+            }
+            .menu a{
+                display: block;
+                
+                padding: 15px;
+                border: 1px solid #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1>Click Dropdown Menu</h1>
+
+        <div class="dropdown">
+            <a href="#" class="toggle">Dropdown Menu <span class="dropdowntoggleicon">&or;</span></a>
+            <div class="menu">
+                <a href="#">Item One</a>
+                <a href="#">Item Two</a>
+                <a href="#">Item Three</a>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            const dropdowntoggle = document.querySelector('.toggle');
+            const menu = document.querySelector('.menu');
+
+            dropdowntoggle.addEventListener('click',()=>{
+                if(menu.style.display === 'block'){
+                    menu.style.display = 'none';
+                }else{
+                    menu.style.display = 'block';
+                }
+            });
+        </script>
+    </body>
+</html>

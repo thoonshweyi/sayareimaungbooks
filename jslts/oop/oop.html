@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OOP</title>
+    </head>
+    <body>
+        
+
+
+        <script type="text/javascript">
+
+            // *simple class
+            // class contain properties and methods
+            class Car{
+                color = '';
+                wheel = 4;
+                drive(){
+                    console.log('The car is driving');
+                }
+            }
+            let mycar = new Car();
+            mycar.color = 'Red';
+            console.log(mycar.color);
+            mycar.drive();
+            
+
+
+            // *Access Modifier
+            // 1.static (static properties and methods can directly call after class name)
+            class Calculator{
+                static PI = 3.14;
+                static add(a,b){
+                    return a + b;
+                }
+            }
+            console.log(Calculator.PI);
+            console.log(Calculator.add(1, 2));
+
+            // 2.private
+            class Dog{
+                #name = 'Milk Tea';
+                color = 'White';
+
+                getName(){
+                    console.log(`Name is ${this.#name}`);
+                }
+            }
+            let mydog = new Dog();
+            console.log(mydog.name);
+            mydog.getName();
+
+            // *Constructor Method
+            class Cat{
+                constructor(name){
+                    this.name = name;
+                }
+                getName(){
+                    console.log(`Name is ${this.name}`);
+                }
+            }
+            let mycat = new Cat('Shwe Wah');
+            mycat.getName();
+        </script>
+    </body>
+</html>

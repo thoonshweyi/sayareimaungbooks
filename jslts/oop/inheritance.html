@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OOP Inheritance</title>
+    </head>
+    <body>
+        
+
+
+        <script type="text/javascript">
+            class Animal{
+                constructor(name){
+                    this.name = name;
+                }
+                eat(){
+                    console.log(`${this.name} is eating`);
+                }
+            }
+
+            class Dog extends Animal{
+                bark(){
+                    console.log(`${this.name}: Woof Woof`);
+                }
+            }
+            let milo = new Dog('Milo');
+            milo.eat();
+            milo.bark(); 
+
+            class Cat extends Animal{
+                constructor(name, color){
+                    super(); //super() method call the parent class constructor
+                    this.color = color;
+                }
+                meow(){
+                    console.log(`${this.name}: Meow Meow`);
+                }
+            }
+            let mycat = new Cat('Shwe Wah','Yellow');
+            console.log(mycat.color);
+        </script>
+    </body>
+</html>

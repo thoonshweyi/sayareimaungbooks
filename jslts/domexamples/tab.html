@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tab</title>
+        <style type="text/css">
+            ul{
+                list-style-type: none;
+                margin: 0;
+
+                background-color: chocolate;
+                padding: 10px 10px 0 10px;
+
+                display: flex;
+
+            }
+            .tab{
+                background-color: white;
+                padding: 8px 40px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            .content{
+                min-height: 200px;
+                border: 1px solid chocolate;
+                border-top: none;
+                padding: 20px;
+            }
+            #tabtwo{
+                opacity: 0.5;
+            }
+            #contenttwo{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        
+
+        <ul class="bar">
+            <li id="tabone" class="tab">Tab 1</li>
+            <li id="tabtwo" class="tab">Tab 2</li>
+        </ul>
+        <div id="contentone" class="content">
+            Content One Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quae eaque fuga iusto quam possimus.
+        </div>
+        <div id="contenttwo" class="content">
+            Content Two Voluptatem officia minima nobis, id impedit harum illo perferendis? Necessitatibus cupiditate reprehenderit amet. Voluptatum, beatae!
+        </div>
+
+
+        <script type="text/javascript">
+
+            const tabone = document.querySelector('#tabone'),
+                    tabtwo = document.querySelector('#tabtwo');
+
+            const contentone = document.querySelector('#contentone'),
+                    contenttwo = document.querySelector('#contenttwo');
+
+            tabone.addEventListener('click',()=>{
+                tabone.style.opacity = '1';
+                tabtwo.style.opacity = '0.5';
+
+                contentone.style.display = 'block';
+                contenttwo.style.display = 'none';
+            });
+
+            tabtwo.addEventListener('click',()=>{
+                tabtwo.style.opacity = '1';
+                tabone.style.opacity = '0.5';
+
+                contenttwo.style.display = 'block';
+                contentone.style.display = 'none';
+            });
+        </script>
+    </body>
+</html>

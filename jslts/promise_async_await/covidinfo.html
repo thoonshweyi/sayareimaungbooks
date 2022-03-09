@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Covid Info</title>
+    </head>
+    <body>
+        
+
+
+        <script type="text/javascript">
+
+            const url = "https://api.covid19api.com/summary";
+
+            //Method1 (use fetch,then,then)
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const global = data.Global;
+                const allcountries = data.Countries;
+                const myanmar = allcountries.find(c => c.Country === "Myanmar");
+
+
+                console.log("Global:", global, "Myanmar:",myanmar);
+            });
+
+
+            //Method2(use async await)
+            // async function covidInfo(){
+            //     const response = await fetch(url);
+            //     const data = await response.json();
+
+            //     const global = data.Global;
+            //     const allcountries = data.Countries;
+            //     const myanmar = allcountries.find(c => c.Country === "Myanmar");
+
+            //     console.log("Global:", global, "Myanmar:",myanmar);
+            // }
+
+        </script>
+
+
+    </body>
+</html>

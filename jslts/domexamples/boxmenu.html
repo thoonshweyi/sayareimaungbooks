@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Box Menu</title>
+        <style type="text/css">
+            .box{
+                width: 300px;
+
+                border: 1px solid teal;
+                margin-bottom: 10px;
+            }
+            .box h3{
+                background-color: teal;
+                color: white;
+                margin: 0;
+                padding: 8px;
+
+                cursor: pointer;
+            }
+
+            /* Method 1 */
+            /* .box h3.close{
+                background-color: cadetblue;
+            } */
+
+
+            /* Method 2 */
+            .box.close ul{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        
+
+        <div class="box">
+            <h3>Box Title</h3>
+            <ul>
+                <li>Item One</li>
+                <li>Item Two</li>
+                <li>Item Three</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Box Title</h3>
+            <ul>
+                <li>Item One</li>
+                <li>Item Two</li>
+                <li>Item Three</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Box Title</h3>
+            <ul>
+                <li>Item One</li>
+                <li>Item Two</li>
+                <li>Item Three</li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+            // Method 1
+            // const titles = document.querySelectorAll('.box h3');
+
+            // titles.forEach((title)=>{
+            //     title.addEventListener('click',()=>{
+            //         title.classList.toggle('close');
+            //         if(title.nextElementSibling.style.display === 'none'){
+            //             title.nextElementSibling.style.display = 'block';
+            //         }else{
+            //             title.nextElementSibling.style.display = 'none';
+            //         }
+            //     });
+            // });
+
+
+            // Method 2
+            const titles = document.querySelectorAll('.box h3');
+
+            titles.forEach((title)=>{
+                title.addEventListener('click',()=>{
+                    // add class to parent element
+                    if(title.parentElement.classList.contains('close')){
+                        title.parentElement.classList.remove('close');
+                    }else{
+                        title.parentElement.classList.add('close');
+                    }
+                });
+            })
+
+        </script>
+    </body>
+</html>
