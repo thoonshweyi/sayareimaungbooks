@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custome Contex Menu</title>
+        <style type="text/css">
+            body{
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container{
+                position: relative;
+            }
+            .context-element{
+                width: 200px;
+                height: 200px;
+                border: 1px solid #cbd5e0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .context-menu{
+                list-style-type: none;
+
+                margin: 0;
+                padding: 0;
+
+                border: 1px solid #cbd5e0;
+                border-radius: 5px;
+                background-color: #f7fafc;
+
+                position: absolute;
+
+                display: none;
+            }
+            .context-menu.show{
+                display: block;
+            }
+            .context-menu-item{
+                padding: 8px 20px;
+                white-space: nowrap;
+            }
+            .context-menu-divider{
+                height: 1px;
+                border-bottom: 1px solid #cbd5e0;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="context-element">Right-click Me</div>
+            <ul class="context-menu">
+                <li class="context-menu-item">First Action</li>
+                <li class="context-menu-item">Second Action</li>
+                <li class="context-menu-divider"></li>
+                <li class="context-menu-item">Another Action</li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+
+             const contextElement = document.querySelector('.context-element');
+             const contextMenu = document.querySelector('.context-menu');
+
+             contextElement.addEventListener('contextmenu',(e)=>{
+                e.preventDefault();
+
+                let rect = contextElement.getBoundingClientRect();
+
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
+
+                contextMenu.style.left = `${x}px`;
+                contextMenu.style.top = `${y}px`;
+
+                contextMenu.classList.add('show');
+
+
+                document.addEventListener('click',documentClickHaldler);
+             });
+
+
+             function documentClickHaldler(e){
+                let isclickoutsidemenu = !contextMenu.contains(e.target);
+                if(isclickoutsidemenu){
+                    contextMenu.classList.remove('show');
+                    document.removeEventListener('click',documentClickHaldler);
+                }
+             }
+        </script>
+    </body>
+</html>

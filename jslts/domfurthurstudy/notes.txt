@@ -1,0 +1,8 @@
+https://htmldom.dev/
+
+-to find out if the child element is a descendant of the  parent element.
+ const isDescendant = parentel.contains(childel);
+
+-to clone an element
+ const cloned = originalele.cloneNode(true);//Deep copy
+ const cloned = originalele.cloneNode(false);//copy only the attributes and the original node:

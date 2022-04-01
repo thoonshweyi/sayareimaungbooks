@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Count Of Textarea</title>
+        <style type="text/css">
+            body{
+                height: 100vh;
+                font-family: sans-serif;
+            
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                margin: 0;
+                overflow: hidden;
+            }
+            .container{
+                width: 200px;
+                /* background-color: red; */
+            }
+            .messageinput{
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .counter{
+                margin: 10px 0px;
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        
+
+        <div class="container">
+            <textarea name="messageinput" id="messageinput" class="messageinput"  rows="5" maxlength="200" placeholder="Type Something" ></textarea>
+            <div class="counter">0/200</div>
+        </div>
+
+
+        <script type="text/javascript">
+            const messageinput = document.querySelector('.messageinput');
+            const counterel = document.querySelector('.counter');
+            const maxlength = messageinput.getAttribute('maxlength');
+            messageinput.addEventListener('input',()=>{
+                let currentlength = messageinput.value.length;
+                counterel.textContent = `${currentlength}/${maxlength}`;
+            });
+        </script>
+    </body>
+</html>

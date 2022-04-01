@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dragging File</title>
+        <style type="text/css">
+            body{
+                font-family: sans-serif;
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .item{
+                width: 200px;
+                height: 200px;
+                border: 1px solid #cbd5e0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .dhover{
+                border: 4px dashed #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="item">Drop Here</div>
+        </div>
+
+
+        <script type="text/javascript">
+            const item = document.querySelector('.item');
+
+            item.addEventListener('dragover',(e)=>{
+                e.preventDefault();
+                console.log('drag over');
+            });
+
+            item.addEventListener('dragenter',(e)=>{
+                e.preventDefault();
+                item.classList.add('dhover');
+                
+                console.log('drag enter');
+            });
+
+            item.addEventListener('dragleave',(e)=>{
+                e.preventDefault();
+                item.classList.remove('dhover');
+
+                console.log('drag leave');
+            });
+
+            item.addEventListener('drop',(e)=>{
+                e.preventDefault();
+                item.classList.remove('dhover');
+
+                console.log('drag drop');
+            });
+
+
+        </script>
+    </body>
+</html>
